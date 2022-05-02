@@ -35,7 +35,7 @@ if __name__ == '__main__':
     parser.add_argument('--lr', type=float, default=1e-4)
     parser.add_argument('--n_workers', type=int, default=8)
     #parser.add_argument('--seed', type=int, default=123)
-    parser.add_argument('--use_fast_loader', action='store_true')
+    #parser.add_argument('--use_fast_loader', action='store_true')
     opt = parser.parse_args()
 
     prev_epoch = 0
