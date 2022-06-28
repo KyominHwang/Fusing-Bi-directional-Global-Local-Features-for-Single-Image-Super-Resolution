@@ -10,6 +10,12 @@ Fusing Bi-directional Global-Local Features for Single Image Super-Resolution im
 * PIL
 * tqdm
 
-# Result
+# Results
 ![res1](https://user-images.githubusercontent.com/28581473/176228498-625f6e7c-154d-4baa-bfa9-3dd0a71875e6.PNG)
 ![res2](https://user-images.githubusercontent.com/28581473/176228529-82a80fef-1927-486c-b6d4-af0029bf7c15.PNG)
+
+# Visual Results
+![visres1](https://user-images.githubusercontent.com/28581473/176228800-af108540-06f8-45fe-b5ea-27a493c8ca22.PNG)
+
+# Acknowledgement
+This code is built on [RCAN-pytorch](https://github.com/yjn870/RCAN-pytorch) and [SwinIR](https://github.com/JingyunLiang/SwinIR). Thanks for their awesome work.
