@@ -258,8 +258,8 @@ class HLBlock(nn.Module):
             Block(n_feats) for _ in range(1)
         ]
         self.trans = nn.Sequential(*trans)
-        self.conv_lf = nn.Conv2d(n_feats, n_feats, 3, 1, 1)
-        self.conv_hf = nn.Conv2d(n_feats, n_feats, 3, 1, 1)
+        self.conv_lf = nn.Conv2d(n_feats * 2, n_feats, 3, 1, 1)
+        self.conv_hf = nn.Conv2d(n_feats * 2, n_feats, 3, 1, 1)
 
         self.sigmoid = nn.Sigmoid()
 
@@ -271,7 +271,7 @@ class HLBlock(nn.Module):
         # original_lf = lf
         # original_hf = hf
 
-        x = hf + lf
+        x = torch.cat([hf, lf], dim = 1)
         conv_lf = self.sigmoid(self.conv_lf(x))
         conv_hf = self.sigmoid(self.conv_hf(x))
 

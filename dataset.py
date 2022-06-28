@@ -1,19 +1,13 @@
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 import random
 import glob
 import numpy as np
-import PIL.Image as pil_image
-
-import tensorflow as tf
-config = tf.ConfigProto()
-config.gpu_options.allow_growth = True
-tf.enable_eager_execution(config=config)
+from PIL import Image
 
 
 class Dataset(object):
-    def __init__(self, LR_path, GT_path, use_fast_loader=False, transform=None):
+    def __init__(self, LR_path, GT_path, transform=None):
         self.LR_path = LR_path
         self.GT_path = GT_path
         self.transform = transform
@@ -21,31 +15,20 @@ class Dataset(object):
         self.LR_img = sorted(os.listdir(self.LR_path))
         self.GT_img = sorted(os.listdir(self.GT_path))
 
-        self.use_fast_loader = use_fast_loader
-
     def __getitem__(self, idx):
         img_item = {}
-        if self.use_fast_loader:
-            hr = tf.read_file(self.GT_img[idx])
-            hr = tf.image.decode_jpeg(hr, channels=3)
-            hr = pil_image.fromarray(hr.numpy())
+        lr = np.array(Image.open(os.path.join(self.LR_path, self.LR_img[idx])).convert('RGB'))
+        hr = np.array(Image.open(os.path.join(self.GT_path, self.GT_img[idx])).convert('RGB'))
 
-            lr = tf.read_file(self.LR_img[idx])
-            lr = tf.image.decode_jpeg(lr, channels=3)
-            lr = pil_image.fromarray(lr.numpy())
-        else:
-            hr = pil_image.open(self.LR_img[idx]).convert('RGB')
-            lr = pil_image.open(self.GT_img[idx]).convert('RGB')
-
-        img_item["GT"] = np.array(hr).astype(np.float32) / 255.
-        img_item["LR"] = np.array(lr).astype(np.float32) / 255.
+        img_item["GT"] = hr / 255.
+        img_item["LR"] = lr / 255.
 
         if self.transform is not None:
             img_item = self.transform(img_item)
 
-        img_item["GT"] = img_item["GT"].transpose(2, 0, 1)
-        img_item["LR"] = img_item["LR"].transpose(2, 0, 1)
-
+        img_item["GT"] = img_item["GT"].transpose(2, 0, 1).astype(np.float32)
+        img_item["LR"] = img_item["LR"].transpose(2, 0, 1).astype(np.float32)
+        
         return img_item
 
     def __len__(self):
