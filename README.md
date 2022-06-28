@@ -10,6 +10,16 @@ Fusing Bi-directional Global-Local Features for Single Image Super-Resolution im
 * PIL
 * tqdm
 
+# Training
+* DIV2K(800 image) for training
+
+# Testing
+* Set5
+* Set14
+* Manga109
+* BSD100
+* urban100
+
 # Results
 ![res1](https://user-images.githubusercontent.com/28581473/176228498-625f6e7c-154d-4baa-bfa9-3dd0a71875e6.PNG)
 ![res2](https://user-images.githubusercontent.com/28581473/176228529-82a80fef-1927-486c-b6d4-af0029bf7c15.PNG)
