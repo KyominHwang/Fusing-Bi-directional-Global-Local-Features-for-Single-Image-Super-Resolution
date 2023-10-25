@@ -27,5 +27,8 @@ Fusing Bi-directional Global-Local Features for Single Image Super-Resolution im
 # Visual Results
 ![visres1](https://user-images.githubusercontent.com/28581473/176228800-af108540-06f8-45fe-b5ea-27a493c8ca22.PNG)
 
+# Pretrained weights
+https://drive.google.com/drive/folders/1G9fRdxUXmd-xziOinhXl6cHPJlpocpIH?usp=drive_link
+
 # Acknowledgement
 This code is built on [RCAN-pytorch](https://github.com/yjn870/RCAN-pytorch) and [SwinIR](https://github.com/JingyunLiang/SwinIR). Thanks to their awesome work.
