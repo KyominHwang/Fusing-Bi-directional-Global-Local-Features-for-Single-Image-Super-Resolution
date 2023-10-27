@@ -27,6 +27,10 @@ Implementation for Fusing Bi-directional Global-Local Features for Single Image 
 # Visual Results
 ![visres1](https://user-images.githubusercontent.com/28581473/176228800-af108540-06f8-45fe-b5ea-27a493c8ca22.PNG)
 
+# High frequency, Low frequency separation Results
+![image](https://github.com/KyominHwang/Fusing-Bi-directional-Global-Local-Features-for-Single-Image-Super-Resolution/assets/28581473/988c2d9b-19ca-48e3-aaf2-6500fb9c5268)
+
+
 # Pretrained weights
 https://drive.google.com/drive/folders/1G9fRdxUXmd-xziOinhXl6cHPJlpocpIH?usp=drive_link
 
